@@ -1,7 +1,7 @@
-import prompt from "async-prompt";
-import { getAllProfile, postProfile } from "./module/camper.js";
+import { getAllOficceCityAndMovil, getAllOficceCodeCity } from "./module/offices.js";
+import { getAllFullNameAndEmail,getNameLastnameEmailBoss } from "./module/employees.js";
 
-//console.log(await getAllProfile());
-
-let name = await prompt("Ingrese el nombre: ");
-console.log(await postProfile(name));
+//console.log(await getAllOficceCodeCity());
+//console.log(await getAllOficceCityAndMovil());
+//console.log(await getAllFullNameAndEmail());
+console.log(await getNameLastnameEmailBoss());
