@@ -19,22 +19,46 @@ export const getAllFullNameAndEmail = async() => {
 
 } 
 
-//4. Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la empresa
+//4. Devuelve el nombre del puesto, nombre, apellidos y email del 
+//jefe de la empresa
 
 
 export const getNameLastnameEmailBoss = async() => {
 
-    let res = await fetch("http://localhost:5502/employee?code_boss_ne=")
+    let res = await fetch("http://localhost:5502/employee")
     let data = await res.json()
-    let dataUpdate = data.map(val => {
-        return {
+    let dataUpdate = data.filter(val => val.code_boss === null)
+    
+    let dataPrint = dataUpdate.map(val => ({
 
-            name: val.name,
+        name: val.name,
+        lastname: `${val.lastname1} ${val.lastname2}`,
+        email: val.email.match(/(?<=mailto:)[^\s<>]+/)[0]
 
-        }
-    })
+    }))
 
-    return dataUpdate
+    return dataPrint
 
+
+}
+
+//5. Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados 
+//que no sean representantes de ventas.
+
+export const getNameLastnamePosition = async() => {
+
+    let res = await fetch("http://localhost:5502/employee")
+    let data = await res.json()
+    let dataUpdate = data.filter(val => val.position !== "Representante Ventas")
+    
+    let dataPrint = dataUpdate.map(val => ({
+
+        name: val.name,
+        lastname: `${val.lastname1} ${val.lastname2}`,
+        position: val.position
+
+    }))
+
+    return dataPrint
 
 }

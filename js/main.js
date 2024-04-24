@@ -1,8 +1,12 @@
 import { getAllOficceCityAndMovil, getAllOficceCodeCity } from "./module/offices.js";
-import { getAllFullNameAndEmail,getNameLastnameEmailBoss } from "./module/employees.js";
+import { getAllFullNameAndEmail,getNameLastnameEmailBoss, getNameLastnamePosition } from "./module/employees.js";
 import { getAll } from "./module/payments.js";
-//console.log(await getAllOficceCodeCity());
-//console.log(await getAllOficceCityAndMovil());
-//console.log(await getAllFullNameAndEmail());
-//console.log(await getNameLastnameEmailBoss());
-console.log(await getAll());
+import { getAllSpainClients } from "./module/clients.js";
+import { getStatus } from "./module/requests.js";
+//1. console.log(await getAllOficceCodeCity());
+//2. console.log(await getAllOficceCityAndMovil());
+//3. console.log(await getAllFullNameAndEmail());
+//4. console.log(await getNameLastnameEmailBoss());
+//5. console.log(await getNameLastnamePosition());
+//6. console.log(await getAllSpainClients());
+console.log(await getStatus());
