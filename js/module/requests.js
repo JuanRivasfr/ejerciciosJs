@@ -7,12 +7,8 @@ export const getStatus = async() => {
     let data = await res.json()
     let aux = []
     let dataUpdate = data.map(val => (val.status))
-    dataUpdate.forEach((element, index) => {
-     
-        
+    let dataPrint = new Set(dataUpdate)
 
-    })
-
-    return dataUpdate
+    return Array.from(dataPrint)
 
 }
