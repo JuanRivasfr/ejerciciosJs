@@ -42,10 +42,39 @@ export const getAll = async() => {
         if(year == "2008"){
             dataUpdate.push(val)
         }
-
     });
+
+    dataUpdate.sort((a, b) => {
+
+        let [, monthA] = a.date_payment.split("-")
+        let [, monthB] = b.date_payment.split("-")
+
+        return monthB - monthA
+
+    })
     
     return dataUpdate;
 
+
+}
+
+//14. Devuelve un listado con todas las formas de pago que aparecen en la tabla pago. 
+//Tenga en cuenta que no deben aparecer formas de pago repetidas.
+
+export const getAllPayForms = async() => {
+
+    let res = await fetch("http://localhost:5505/payments")
+    let data = await res.json()
+    let dataUpdate = new Set()
+
+    data.forEach(val => {
+
+        if(!dataUpdate.has(val.payment)){
+            dataUpdate.add(val.payment)
+        }
+
+    })
+
+    return Array.from(dataUpdate)
 
 }

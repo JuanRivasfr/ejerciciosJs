@@ -44,7 +44,7 @@ export const getAllOrderCodeClientCodeDateWaitDateRequest = async() => {
     return dataPrint
 }
 
-//Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los 
+//10. Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los 
 //pedidos cuya fecha de entrega ha sido al menos dos días antes de la fecha esperada.
 
 export const getRequestCodeClientCodeDateAwaitDateDelivery2 =  async () =>{
@@ -75,6 +75,75 @@ export const getRequestCodeClientCodeDateAwaitDateDelivery2 =  async () =>{
         
     })
 
+    let dataPrint = dataUpdate.map(val => {
+
+        return {
+
+            code_request : val.code_request,
+            code_client : val.code_client,
+            date_wait : val.date_wait,
+            date_delivery : val.date_delivery,
+
+        }
+
+    })
+
+    return dataPrint
+
+}
+
+//11. Devuelve un listado de todos los pedidos que fueron rechazados en 2009
+
+export const getRejectedRequestAt2009 = async() => {
+
+    let res = await fetch("http://localhost:5508/requests")
+    let data = await res.json()
+    let dataUpdate = []
+
+    data.forEach(val => {
+
+        let [año] = val.date_request.split("-")
+
+        if (año === "2009" && val.status === "Rechazado"){
+
+            dataUpdate.push(val)
+
+        }
+
+    })
+
     return dataUpdate
 
 }
+
+//12. Devuelve un listado de todos los pedidos que han sido entregados 
+//en el mes de enero de cualquier año.
+
+export const getAllRequestMadeInJanuary = async () => {
+
+    let res = await fetch("http://localhost:5508/requests")
+    let data = await res.json()
+    let dataUpdate = []
+    
+    data.forEach(val => {
+
+        if (val.date_delivery){
+            
+            let [, month] = val.date_delivery.split("-")
+            
+            if (month === "01"){
+                dataUpdate.push(
+                    {
+                        date_delivery : val.date_delivery,
+                        code_request : val.code_request
+                    }
+                )
+            }
+        }
+
+    })
+
+    return dataUpdate
+
+}
+

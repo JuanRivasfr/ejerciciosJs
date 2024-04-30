@@ -68,7 +68,7 @@
             "status": "Pendiente",
             "comment": "El cliente llama para confirmar la fecha - Esperando al proveedor",
             "code_client": 3,
-            "id": 7NaN
+            "id": 7
         },
         {
             "code_request": 11,
