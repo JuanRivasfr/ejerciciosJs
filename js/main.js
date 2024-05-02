@@ -1,8 +1,9 @@
 import { getAllOficceCityAndMovil, getAllOficceCodeCity } from "./module/offices.js";
 import { getAllFullNameAndEmail,getNameLastnameEmailBoss, getNameLastnamePosition } from "./module/employees.js";
 import { getAll, getAllCodePay2008, getAllPayForms } from "./module/payments.js";
-import { getAllSpainClients } from "./module/clients.js";
+import { getAllSpainClients, getAllMadridClientesWithCodeManagerEquals11Or30 } from "./module/clients.js";
 import { getStatus, getAllOrderCodeClientCodeDateWaitDateRequest, getRequestCodeClientCodeDateAwaitDateDelivery2, getRejectedRequestAt2009,  getAllRequestMadeInJanuary} from "./module/requests.js";
+import { getAllProductsGamaEqualsOrnamentales } from "./module/product.js";
 //1. console.log(await getAllOficceCodeCity());
 //2. console.log(await getAllOficceCityAndMovil());
 //3. console.log(await getAllFullNameAndEmail());
@@ -16,4 +17,6 @@ import { getStatus, getAllOrderCodeClientCodeDateWaitDateRequest, getRequestCode
 //11. console.log(await getRejectedRequestAt2009());
 //12. console.log(await getAllRequestMadeInJanuary())
 //13. console.log(await getAll())
-console.log(await getAllPayForms())
+//14. console.log(await getAllPayForms())
+//15. console.log(await getAllProductsGamaEqualsOrnamentales())
+console.log(await getAllMadridClientesWithCodeManagerEquals11Or30())
