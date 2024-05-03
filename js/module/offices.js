@@ -30,4 +30,8 @@ export const getAllOficceCityAndMovil = async() =>{
 
 }
 
+//Multitabla
+
+
+
 
