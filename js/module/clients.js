@@ -15,7 +15,7 @@ export const getAllSpainClients = async() => {
         
     }))
 
-    return dataPrint
+    return dataUpdate
 
 
 }
