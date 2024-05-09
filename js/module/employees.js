@@ -19,8 +19,7 @@ export const getAllFullNameAndEmail = async() => {
 
 } 
 
-//4. Devuelve el nombre del puesto, nombre, apellidos y email del 
-//jefe de la empresa
+//4. Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la empresa
 
 
 export const getNameLastnameEmailBoss = async() => {
@@ -33,7 +32,8 @@ export const getNameLastnameEmailBoss = async() => {
 
         name: val.name,
         lastname: `${val.lastname1} ${val.lastname2}`,
-        email: val.email.match(/(?<=mailto:)[^\s<>]+/)[0]
+        email: val.email.match(/(?<=mailto:)[^\s<>]+/)[0],
+        position: val.position
 
     }))
 
@@ -42,8 +42,7 @@ export const getNameLastnameEmailBoss = async() => {
 
 }
 
-//5. Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados 
-//que no sean representantes de ventas.
+//5. Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados que no sean representantes de ventas.
 
 export const getNameLastnamePosition = async() => {
 

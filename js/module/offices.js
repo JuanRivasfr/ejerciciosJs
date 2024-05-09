@@ -22,7 +22,8 @@ export const getAllOficceCityAndMovil = async() =>{
     let dataUpdate = data.map(val => {
         return {
             code_office: val.code_office,
-            movil: val.movil
+            movil: val.movil,
+            country: val.country
         }
     })
 
